@@ -22,7 +22,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('/admin', [AdminController::class,"index"]);
-Route::get('/admin/Heroes', [HeroController::class,"index"])->name('admin.Heroes');
-Route::get('/admin/Enemies', [EnemyController::class,"index"])->name('admin.Enemies');
-Route::get('/admin/Items', [ItemController::class,"index"])->name('admin.Items');
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', [AdminController::class, "index"])->name('admin');
+    Route::get('Heroes', [HeroController::class, "index"])->name('admin.Heroes');
+    Route::get('Enemies', [EnemyController::class, "index"])->name('admin.Enemies');
+    Route::get('Items', [ItemController::class, "index"])->name('admin.Items');
+});
