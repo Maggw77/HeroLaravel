@@ -22,6 +22,18 @@ class HeroController extends Controller
 
     public function store(Request $request)
     {
+        saveHero($request);
+
+        return redirect()->route('admin.Heroes');
+    }
+
+    public function edit($id){
+        $hero = Hero::find($id);
+
+        return view('admin.Heroes.edit', ['hero' => $hero]);
+    }
+
+    public function saveHero(Request $request){
         $hero = new Hero();
         $hero->name = $request->input('name');
         $hero->hp = $request->input('hp');
@@ -33,6 +45,12 @@ class HeroController extends Controller
         $hero->level_id = 1;
         $hero->save();
 
-        return redirect()->route('admin.Heroes');
     }
+
+    public function update($id) {
+        $hero =Hero::find($id);
+
+
+    }
+
 }
