@@ -28,7 +28,7 @@
                         <a class="nav-link" href="{{ route('admin.Enemies') }}">Enemigos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.Items') }}">Items</a>
+                        <a class="nav-link" href="{{ route('Item.index') }}">Items</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
