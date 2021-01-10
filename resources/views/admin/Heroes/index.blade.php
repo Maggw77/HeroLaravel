@@ -32,8 +32,18 @@
         <td>{{$heroe->coins}}</td>
         <td>{{$heroe->xp}}</td>
         <td>
-        <a href="{{ route('admin.Heroes.edit',['id' => $heroe->id]) }}" class="btn btn-success  mb-2 mt-2">Modificar</a>
-        <a href="{{ route('admin.Heroes') }}" class="btn btn-danger  mb-2 mt-2">Borrar</a>
+          <div class="row">
+            <div class="col">
+              <a href="{{ route('admin.Heroes.edit',['id' => $heroe->id]) }}" class="btn btn-success  mb-2 mt-2">Modificar</a>
+            </div>
+            <div class="col">
+              <form action="{{route('admin.Heroes.destroy',['id' => $heroe->id])}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Borrar</button>
+              </form>
+            </div>
+          </div>
         </td>
       </tr>
       @endforeach

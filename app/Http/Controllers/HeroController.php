@@ -58,4 +58,10 @@ class HeroController extends Controller
     {
       return  $this->saveHero($request, $id);
     }
+
+    public function destroy($id){
+        $hero =Hero::find($id);
+        $hero->delete();
+        return redirect()->route('admin.Heroes');
+    }
 }
