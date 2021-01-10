@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('create', [HeroController::class, "create"])->name('admin.Heroes.create');
         Route::post('store', [HeroController::class, "store"])->name('admin.Heroes.store');
         Route::get('edit/{id}', [HeroController::class, "edit"])->name('admin.Heroes.edit');
-        Route::get('update', [HeroController::class, "update"])->name('admin.Heroes.update');
+        Route::post('update/{id}', [HeroController::class, "update"])->name('admin.Heroes.update');
     });
 
     Route::get('Enemies', [EnemyController::class, "index"])->name('admin.Enemies');

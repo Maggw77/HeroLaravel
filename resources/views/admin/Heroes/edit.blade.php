@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{ route('admin.Heroes.update') }}" method="post">
+<form action="{{ route('admin.Heroes.update', ['id'=> $hero->id] ) }}" method="post">
     @csrf
     <legend>Editar Heroe</legend>
     <div class="mb-3">
